@@ -49,6 +49,30 @@ class BSTree:
 
         return current.value
 
+    def contains(self, search_value) -> bool:
+        """
+        determines if the tree contains the search value given in the params
+
+        :param search_value: the value to search for
+        :returns: boolean
+        """
+
+        if self.is_empty():
+            return False
+
+        current = self.root
+
+        while current is not None:
+            if current.value == search_value:
+                return True
+
+            if search_value < current.value:
+                current = current.left
+            else:
+                current = current.right
+
+        return False
+
     def insert(self, value) -> None:
         """insert a node into the tree"""
 
