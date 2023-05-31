@@ -27,12 +27,25 @@ class BSTree:
         """get the minimum value of the tree"""
 
         if self.is_empty():
-            return
+            return None
 
         current = self.root
 
         while current.left is not None:
             current = current.left
+
+        return current.value
+
+    def max(self):
+        """get the maximum value of the tree"""
+
+        if self.is_empty():
+            return None
+
+        current = self.root
+
+        while current.right is not None:
+            current = current.right
 
         return current.value
 
