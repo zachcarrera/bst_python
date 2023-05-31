@@ -111,6 +111,21 @@ class BSTree:
             print(current.value)
             self.print_in_order(current.right)
 
+    def print_pre_order(self, current=NOTHING) -> None:
+        """print the nodes in pre order"""
+
+        if self.is_empty():
+            print("Empty tree")
+            return
+
+        if current is NOTHING:
+            current = self.root
+
+        if current is not None:
+            print(current.value)
+            self.print_in_order(current.left)
+            self.print_in_order(current.right)
+
     def print_tree(self, node=NOTHING, space_cnt=1, space_incr=10) -> None:
         """print the tree in 2d form"""
 
