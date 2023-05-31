@@ -18,6 +18,11 @@ class BSTree:
     def __init__(self) -> None:
         self.root: BSTNode | None = None
 
+    def is_empty(self):
+        """determine if the tree is empty"""
+
+        return self.root is None
+
     def print_tree(self, node=NOTHING, space_cnt=1, space_incr=10) -> None:
         """print the tree in 2d form"""
 
