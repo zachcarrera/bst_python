@@ -23,6 +23,19 @@ class BSTree:
 
         return self.root is None
 
+    def min(self):
+        """get the minimum value of the tree"""
+
+        if self.is_empty():
+            return
+
+        current = self.root
+
+        while current.left is not None:
+            current = current.left
+
+        return current.value
+
     def insert(self, value) -> None:
         """insert a node into the tree"""
 
