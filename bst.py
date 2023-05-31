@@ -23,8 +23,35 @@ class BSTree:
 
         return self.root is None
 
+    def insert(self, value) -> None:
+        """insert a node into the tree"""
+
+        new_node = BSTNode(value)
+        # insert at root if empty
+        if self.is_empty():
+            self.root = new_node
+            return
+
+        current = self.root
+
+        while current is not None:
+            if value < current.value:
+                if current.left is None:
+                    current.left = new_node
+                    return
+                current = current.left
+            else:
+                if current.right is None:
+                    current.right = new_node
+                    return
+                current = current.right
+
     def print_tree(self, node=NOTHING, space_cnt=1, space_incr=10) -> None:
         """print the tree in 2d form"""
+
+        if self.is_empty():
+            print("Empty tree")
+            return
 
         if node is NOTHING:
             node = self.root
