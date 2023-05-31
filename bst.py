@@ -1,5 +1,7 @@
 """a binary search tree implementation"""
 
+NOTHING = object()
+
 
 class BSTNode:
     """a binary search tree node"""
@@ -14,4 +16,22 @@ class BSTree:
     """a binary search tree"""
 
     def __init__(self) -> None:
-        self.head: BSTNode | None = None
+        self.root: BSTNode | None = None
+
+    def print_tree(self, node=NOTHING, space_cnt=1, space_incr=10) -> None:
+        """print the tree in 2d form"""
+
+        if node is NOTHING:
+            node = self.root
+
+        if node is None:
+            return
+
+        space_cnt += space_incr
+
+        self.print_tree(node.right, space_cnt)
+
+        repeat_count = 0 if space_cnt < space_incr else space_cnt - space_incr
+        print(" " * repeat_count + f"{node.value}")
+
+        self.print_tree(node.left, space_cnt)
